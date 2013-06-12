@@ -16,6 +16,24 @@ class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
-        return new ViewModel();
+        $objectManager = $this
+            ->getServiceLocator()
+            ->get('Doctrine\ORM\EntityManager');
+    
+        /*$user = new \Application\Entity\User();
+        $user->setFullName('Marco Pivetta');
+        $objectManager->persist($user);
+        
+        $address = new \Application\Entity\Address();
+        $address->setCity('Frankfurt');
+        $address->setCountry('Germany');
+        $objectManager->persist($address);
+        
+        $user->setAddress($address);
+        $objectManager->flush();*/
+        
+        $user = $objectManager->find('Application\Entity\User', 3);
+        var_dump($user->getAddress()->getCity()); // Frankfurt
+        
     }
 }
