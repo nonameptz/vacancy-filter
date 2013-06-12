@@ -33,7 +33,7 @@ class IndexController extends AbstractActionController
         $objectManager->flush();*/
         
         $user = $objectManager->find('Application\Entity\User', 3);
-        var_dump($user->getAddress()->getCity()); // Frankfurt
+        //var_dump($user->getAddress()->getCity()); // Frankfurt
         
     }
 }

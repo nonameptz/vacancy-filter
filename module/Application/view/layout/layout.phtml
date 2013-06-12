@@ -3,47 +3,90 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <?php echo $this->headTitle('ZF2 '. $this->translate('Skeleton Application'))->setSeparator(' - ')->setAutoEscape(false) ?>
+        <?php echo $this->headTitle('Vacancy filter') ?>
 
         <?php echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
 
         <!-- Le styles -->
         <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
-                        ->prependStylesheet($this->basePath() . '/css/bootstrap-responsive.min.css')
                         ->prependStylesheet($this->basePath() . '/css/style.css')
-                        ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css') ?>
+                        ->prependStylesheet($this->basePath() . '/css/styles.css') ?>
 
         <!-- Scripts -->
-        <?php echo $this->headScript()->prependFile($this->basePath() . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',))
-                                      ->prependFile($this->basePath() . '/js/bootstrap.min.js')
+        <?php echo $this->headScript()->prependFile($this->basePath() . '/js/base.js', 'text/javascript')
                                       ->prependFile($this->basePath() . '/js/jquery.min.js') ?>
 
     </head>
-    <body>
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </a>
-                    <a class="brand" href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Skeleton Application') ?></a>
-                    <div class="nav-collapse collapse">
-                        <ul class="nav">
-                            <li class="active"><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Home') ?></a></li>
-                        </ul>
-                    </div><!--/.nav-collapse -->
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <?php echo $this->content; ?>
-            <hr>
-            <footer>
-                <p>&copy; 2005 - <?php echo date('Y') ?> by Zend Technologies Ltd. <?php echo $this->translate('All rights reserved.') ?></p>
-            </footer>
-        </div> <!-- /container -->
-        <?php echo $this->inlineScript() ?>
+        <body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onLoad="preloadImages();">
+<!-- ImageReady Slices (index.psd) -->
+<table width="775"  border="0" cellpadding="0" cellspacing="0" class="frame" id="Table_01">
+    <tr>
+        <td colspan="2">
+            <img src="images/m1.jpg" width="136" height="147" alt=""></td>
+        <td colspan="6" rowspan="7" style="padding-top: 12px;">
+            <img src="images/m2.jpg" width="639" height="257" alt=""></td>
+    </tr>
+    <tr>
+        <td rowspan="5">
+            <img src="images/m3.jpg" width="70" height="90" alt=""></td>
+        <td>
+            <a href="/"
+                onmouseover="window.status='home'; changeImages('home', 'images/home-over.jpg'); return true;"
+                onmouseout="window.status=''; changeImages('home', 'images/home.jpg'); return true;"
+                onmousedown="changeImages('home', 'images/home-over.jpg'); return true;"
+                onmouseup="changeImages('home', 'images/home-over.jpg'); return true;">
+                <img name="home" src="images/home.jpg" width="66" height="18" border="0" alt="home"></a></td>
+    </tr>
+    <tr>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <img src="images/m4.jpg" width="136" height="20" alt=""></td>
+    </tr>
+    <tr height="100px;">
+        <td colspan="8">
+          <?php echo $this->content; ?>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3">
+            <img src="images/d1.jpg" width="178" height="44" alt=""></td>
+        <td class="text2">
+        </td>
+        <td>
+            <img src="images/s2.jpg" width="30" height="44" alt=""></td>
+        <td colspan="3" align="left" valign="middle" class="text3">
+            <a href="/">Home</a> | <a href="/">About Us</a> | <a href="/">Services</a> |  <a href="/">Partners</a> | <a href="/">News</a> | <a href="/">Contact Us</a></td>
+    </tr>
+    <tr>
+        <td>
+            <img src="images/spacer.gif" width="70" height="1" alt=""></td>
+        <td>
+            <img src="images/spacer.gif" width="66" height="1" alt=""></td>
+        <td>
+            <img src="images/spacer.gif" width="42" height="1" alt=""></td>
+        <td>
+            <img src="images/spacer.gif" width="193" height="1" alt=""></td>
+        <td>
+            <img src="images/spacer.gif" width="30" height="1" alt=""></td>
+        <td>
+            <img src="images/spacer.gif" width="106" height="1" alt=""></td>
+        <td>
+            <img src="images/spacer.gif" width="194" height="1" alt=""></td>
+        <td>
+            <img src="images/spacer.gif" width="74" height="1" alt=""></td>
+    </tr>
+</table>
+            
     </body>
 </html>
