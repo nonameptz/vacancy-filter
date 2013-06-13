@@ -3,6 +3,8 @@
             <option value="en" <? if($this->lang == 'en'): ?> selected="selected" <?endif;?> >English</option>
             <option value="ru" <? if($this->lang == 'ru'): ?> selected="selected" <?endif;?> >Русский</option>
             <option value="sp" <? if($this->lang == 'sp'): ?> selected="selected" <?endif;?> >Español</option>
+            <option value="fr" <? if($this->lang == 'fr'): ?> selected="selected" <?endif;?> >Français</option>
+            <option value="sw" <? if($this->lang == 'sw'): ?> selected="selected" <?endif;?> >Svensk</option>
         </select>
         <input type="hidden" id="idVacancy" name="idvacancy" value="<? if($this->idVac) { echo $this->idVac; } else { echo '0'; }?>" />
 </div>
@@ -21,12 +23,12 @@
         <? if($this->vacancies):?>
             <h3>All vacancies on language <span style="font-size: 150%">"<? echo $this->lang; ?>"</span></h3>
             <table>
-                <tr>                
                 <? foreach($this->vacancies as $vac):?>
+                <tr>                
                     <td><? echo $vac->getId(); ?></td> 
                     <td><a href="/filter/vacancy/<? echo $vac->getLanguage(); ?>/<? if ($vac->getParentId() == '0') { echo $vac->getId(); } else { echo $vac->getParentId(); } ?>"><? echo $vac->getTitle(); ?></a></td> 
-                <? endforeach;?>    
                 </tr>
+                <? endforeach;?>    
             </table>
         <? else:?>
         <h3>No vacancies on language <span style="font-size: 150%">"<? echo $this->lang; ?>"</span> :(</h3>

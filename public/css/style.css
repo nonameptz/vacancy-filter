@@ -6,6 +6,10 @@
 	float:left;
 }
 
+.clr {
+	clear:both;
+}
+
 h1 {
 	border-bottom: 1px solid gray;
 	margin-bottom: 7px
@@ -23,4 +27,20 @@ h1 {
 	width: 240px;
 	height:120px;
 	padding: 0 0 0 10px;
+}
+
+#addForm label, #addForm input, #addForm select {
+	float: left;
+}
+
+#addForm {
+
+} 
+#addForm label {
+	width: 150px;
+}
+
+#addForm textarea {
+	width: 150px;
+	height: 80px;
 }

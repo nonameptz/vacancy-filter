@@ -48,6 +48,21 @@ class Department extends \Application\Entity\Department implements \Doctrine\ORM
         return parent::getDepartment();
     }
 
+    public function getId()
+    {
+        if ($this->__isInitialized__ === false) {
+            return (int) $this->_identifier["id"];
+        }
+        $this->__load();
+        return parent::getId();
+    }
+
+    public function setDepartment($title)
+    {
+        $this->__load();
+        return parent::setDepartment($title);
+    }
+
 
     public function __sleep()
     {

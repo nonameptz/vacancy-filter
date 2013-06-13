@@ -77,7 +77,19 @@ return array(
                         'idVac'      => 0
                     ),
                 ),
-            )
+            ),
+            
+            'addVacancy' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route'    => '/filter/add[/:submit]',
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Filter',
+                        'action'     => 'add',
+                        'submit'      => 0
+                    ),
+                ),
+            )            
         ),
     ),
     'service_manager' => array(

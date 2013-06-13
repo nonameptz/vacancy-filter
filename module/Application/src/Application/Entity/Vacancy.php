@@ -31,23 +31,70 @@ use Zend\Db\Adapter\Adapter;
         /** @ORM\Column(type="string") */
         protected $language;
         
-        static $adapter;
     
         public function __construct()
         {
             $this->departmentId = new ArrayCollection();
             
-            $this->adapter = new Zend\Db\Adapter\Adapter(array(
-                'driver' => 'Pdo_Mysql',
-                'database' => 'vacancies',
-                'username' => 'root',
-                'password' => 'houston19t'
-             ));
         }
         
-
         // getters/setters
 
+        /** 
+        * Setter of parentId
+        *
+        * @param  parentId - id of vacancy parent
+        */
+        public function setParentId($parentId)
+        {
+            $this->parentId = $parentId;
+        }
+
+        /** 
+        * Setter of title
+        *
+        * @param  title - title of vacancy
+        */
+        public function setTitle($title)
+        {
+            $this->title = $title;
+        }
+
+        /** 
+        * Setter of description
+        *
+        * @param  description - description of vacancy
+        */
+        public function setDescription($description)
+        {
+            $this->description = $description;
+        }
+
+        /** 
+        * Setter of language
+        *
+        * @param  language - language of vacancy
+        */
+        public function setLanguage($language)
+        {
+            $this->language = $language;
+        }
+
+        /** 
+        * Setter of department id
+        *
+        * @param  departmentId - department id of vacancy
+        */
+        public function setDepartmentId($departmentId)
+        {
+            $this->departmentId = $departmentId;
+        }
+        
+        /** 
+        * Function returns associate array of data
+        *
+        * @return array
+        */
         public function getAll()
         {
             return array(
@@ -59,39 +106,62 @@ use Zend\Db\Adapter\Adapter;
                 'language'      => $this->language,
             );
         }
-
-        public function setAddress($address)
-        {
-            $this->address = $address;
-        }
-
-
         
+        /** 
+        * Getter of vacancy id
+        *
+        * @return  id - id of vacancy
+        */        
         public function getId() 
         {
             return $this->id;
         }
-
+        
+        /** 
+        * Getter of vacancy parent id
+        *
+        * @return  parentId - parent id of vacancy
+        */   
         public function getParentId()
         {
             return $this->parentId;
         }
-
+        
+        /** 
+        * Getter of vacancy title
+        *
+        * @return  title - title of vacancy
+        */   
         public function getTitle()
         {
             return $this->title;
         }
         
+        /** 
+        * Getter of vacancy Description
+        *
+        * @return  description - description of vacancy
+        */   
         public function getDescription()
         {
             return $this->description;
         }
         
+        /** 
+        * Getter of vacancy language
+        *
+        * @return  language - language of vacancy
+        */   
         public function getLanguage()
         {
             return $this->language;
         }
         
+        /** 
+        * Getter of vacancy departmentId
+        *
+        * @return  department id of vacancy
+        */   
         public function getDepartmentId()
         {
             return $this->departmentId;

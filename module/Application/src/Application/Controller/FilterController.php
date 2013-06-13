@@ -14,9 +14,10 @@ use Zend\View\Model\ViewModel;
 
 class FilterController extends AbstractActionController
 {
+    
     public function indexAction()
     {
-        echo '1';
+        $this->vacancyAction();
     }
     
     public function vacancyAction()
@@ -27,7 +28,11 @@ class FilterController extends AbstractActionController
 
         $lang = $this->getEvent()->getRouteMatch()->getParam('lang');
         $idVac = $this->getEvent()->getRouteMatch()->getParam('idVac');
-        var_dump($lang);
+        
+        if(!$lang)
+        {
+            $lang = 'en';
+        }
         
         if($idVac)
         {
@@ -86,6 +91,61 @@ class FilterController extends AbstractActionController
             ));
         }
         return $viewObj;
-        
     }
+
+    public function addAction()
+    {
+        $submit = $this->getEvent()->getRouteMatch()->getParam('submit');
+        
+        $objectManager = $this
+                            ->getServiceLocator()
+                            ->get('Doctrine\ORM\EntityManager');       
+         
+        $vacancies = $objectManager
+                        ->getRepository('Application\Entity\Vacancy')
+                        ->findBy(array(
+                                    'parentId' => '0'
+                                ));
+         
+        $departments = $objectManager
+                            ->getRepository('Application\Entity\Department')
+                            ->findAll();
+
+        if(!$submit)
+        {
+            $viewObj = new ViewModel(array(
+                'vacancies' => $vacancies,
+                'departments' => $departments
+            ));
+        } 
+        else
+        {
+            $title = $this->getRequest()->getPost('title');
+            $description = $this->getRequest()->getPost('description');
+            $language = $this->getRequest()->getPost('language');
+            $parentId = $this->getRequest()->getPost('parentId');
+            $departmentId = $this->getRequest()->getPost('departmentId');
+            
+            $vacancy = new \Application\Entity\Vacancy();
+            $vacancy->setTitle($title);
+            $vacancy->setDescription($description);
+            $vacancy->setLanguage($language);
+            $vacancy->setParentId($parentId);
+            $vacancy->setDepartmentId($departmentId);
+            $objectManager->persist($vacancy);
+            
+            $department = new \Application\Entity\Department();
+            $department->getId($departmentId);
+
+            $vacancy->setDepartmentId($department);
+            $objectManager->flush();
+            
+            $viewObj = new ViewModel(array(
+                'vacancies' => $vacancies,
+                'departments' => $departments
+            ));
+        } 
+        return $viewObj;
+    }
+
 }
