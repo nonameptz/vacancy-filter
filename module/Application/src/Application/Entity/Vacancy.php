@@ -5,6 +5,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\Common\Collections\ArrayCollection; 
 use Zend\ModuleManager\Feature\ServiceProviderInterface;
+use Zend\Db\Adapter\Adapter;
+
     /** @ORM\Entity */
     class Vacancy  {
         /**
@@ -29,10 +31,18 @@ use Zend\ModuleManager\Feature\ServiceProviderInterface;
         /** @ORM\Column(type="string") */
         protected $language;
         
+        static $adapter;
     
         public function __construct()
         {
             $this->departmentId = new ArrayCollection();
+            
+            $this->adapter = new Zend\Db\Adapter\Adapter(array(
+                'driver' => 'Pdo_Mysql',
+                'database' => 'vacancies',
+                'username' => 'root',
+                'password' => 'houston19t'
+             ));
         }
         
 
@@ -62,21 +72,29 @@ use Zend\ModuleManager\Feature\ServiceProviderInterface;
             return $this->id;
         }
 
-        public function getFullName()
+        public function getParentId()
         {
-            return $this->fullName;
+            return $this->parentId;
+        }
+
+        public function getTitle()
+        {
+            return $this->title;
+        }
+        
+        public function getDescription()
+        {
+            return $this->description;
+        }
+        
+        public function getLanguage()
+        {
+            return $this->language;
         }
         
         public function getDepartmentId()
         {
             return $this->departmentId;
-        }
-        
-        public function findAllByLang($lang)
-        {
-            return $this->getEntityManager()
-                ->createQuery('SELECT * FROM vacancy WHERE language = "' . $lang . '"')
-                ->getResult();
         }
         
     }

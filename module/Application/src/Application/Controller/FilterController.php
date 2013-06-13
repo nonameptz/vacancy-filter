@@ -27,7 +27,7 @@ class FilterController extends AbstractActionController
 
         $lang = $this->getEvent()->getRouteMatch()->getParam('lang');
         $idVac = $this->getEvent()->getRouteMatch()->getParam('idVac');
-        var_dump($idVac);
+        var_dump($lang);
         
         if($idVac)
         {
@@ -62,22 +62,29 @@ class FilterController extends AbstractActionController
                     $departmentData = $vacancy->getDepartmentId()->getDepartment();             
                 }
             }
+    
+            $viewObj = new ViewModel(array(
+                'lang' => $lang,
+                'idVac' => $idVac,
+                'vacancy' => $vacancyData,
+                'department' => $departmentData,
+            ));
+            
         } 
         else 
         {
-            //var_dump('SELECT * FROM vacancy WHERE language = "' . $lang . '"');
-            $em = $this->getDoctrine()->getManager();
-            $vacancy = $em->getRepository('Vacancy');
-            $vacancies = $vacancy->findAllByLang($lang);
+            $vacancies = $objectManager
+                ->getRepository('Application\Entity\Vacancy')
+                ->findBy(array(
+                            'language' => $lang, 
+                            //'parentId' => '0'
+                        ));
+                
+            $viewObj = new ViewModel(array(
+                'vacancies' => $vacancies,
+                'lang'      => $lang
+            ));
         }
-
-        $viewObj = new ViewModel(array(
-            'lang' => $lang,
-            'idVac' => $idVac,
-            'vacancy' => $vacancyData,
-            'department' => $departmentData,
-        ));
-        
         return $viewObj;
         
     }

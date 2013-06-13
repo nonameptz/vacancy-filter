@@ -4,11 +4,12 @@
             <option value="ru" <? if($this->lang == 'ru'): ?> selected="selected" <?endif;?> >Русский</option>
             <option value="sp" <? if($this->lang == 'sp'): ?> selected="selected" <?endif;?> >Español</option>
         </select>
-        <input type="hidden" id="idVacancy" name="idvacancy" value="<? echo $this->idVac?>" />
+        <input type="hidden" id="idVacancy" name="idvacancy" value="<? if($this->idVac) { echo $this->idVac; } else { echo '0'; }?>" />
 </div>
 <div class="clr"></div>
 <div class="fl">
-    <?if($this->idVac):?>
+    <? if($this->idVac):?>
+        <a href="/filter/vacancy/<? echo $this->lang?>">< back to language filter</a>
         <h1><? echo $this->vacancy['title']?></h1>
         <div id="descr" class="fl">
             <? echo $this->vacancy['description']?>
@@ -16,7 +17,20 @@
         <div id="other" class="fl">
             Department: <b><? echo $this->department?></b>
         </div>
-    <?else:?>
-    
-    <?endif;?>
+    <? else:?>
+        <? if($this->vacancies):?>
+            <h3>All vacancies on language <span style="font-size: 150%">"<? echo $this->lang; ?>"</span></h3>
+            <table>
+                <tr>                
+                <? foreach($this->vacancies as $vac):?>
+                    <td><? echo $vac->getId(); ?></td> 
+                    <td><a href="/filter/vacancy/<? echo $vac->getLanguage(); ?>/<? if ($vac->getParentId() == '0') { echo $vac->getId(); } else { echo $vac->getParentId(); } ?>"><? echo $vac->getTitle(); ?></a></td> 
+                <? endforeach;?>    
+                </tr>
+            </table>
+        <? else:?>
+        <h3>No vacancies on language <span style="font-size: 150%">"<? echo $this->lang; ?>"</span> :(</h3>
+        <a href="/filter/vacancy/en">Try English</a>
+        <? endif;?>
+    <? endif;?>
 </div>

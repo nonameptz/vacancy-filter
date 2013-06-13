@@ -29,6 +29,13 @@ function preloadImages() {
 
 function changeLang() 
 {
-	var id = parseInt($('#idVacancy').val());
-	window.location ='/filter/vacancy/'+$('#lang').val()+'/'+id;
+	var id;
+	if( $('#idVacancy').val() == '0')
+	{  
+		id = '';
+	} else 
+	{
+		id = '/'+parseInt($('#idVacancy').val());
+	}
+	window.location ='/filter/vacancy/'+$('#lang').val()+id;
 }
