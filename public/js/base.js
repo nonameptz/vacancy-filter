@@ -26,3 +26,9 @@ function preloadImages() {
 		preloadFlag = true;
 	}
 }
+
+function changeLang() 
+{
+	var id = parseInt($('#idVacancy').val());
+	window.location ='/filter/vacancy/'+$('#lang').val()+'/'+id;
+}

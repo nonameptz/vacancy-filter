@@ -1,0 +1,22 @@
+<div class="fr">
+        <select class="fl" name="lang" id="lang" onchange="changeLang();" style="width:66px;">
+            <option value="en" <? if($this->lang == 'en'): ?> selected="selected" <?endif;?> >English</option>
+            <option value="ru" <? if($this->lang == 'ru'): ?> selected="selected" <?endif;?> >Русский</option>
+            <option value="sp" <? if($this->lang == 'sp'): ?> selected="selected" <?endif;?> >Español</option>
+        </select>
+        <input type="hidden" id="idVacancy" name="idvacancy" value="<? echo $this->idVac?>" />
+</div>
+<div class="clr"></div>
+<div class="fl">
+    <?if($this->idVac):?>
+        <h1><? echo $this->vacancy['title']?></h1>
+        <div id="descr" class="fl">
+            <? echo $this->vacancy['description']?>
+        </div>
+        <div id="other" class="fl">
+            Department: <b><? echo $this->department?></b>
+        </div>
+    <?else:?>
+    
+    <?endif;?>
+</div>

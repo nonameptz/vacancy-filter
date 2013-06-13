@@ -3,7 +3,7 @@
 namespace Application\Entity;
 use Doctrine\ORM\Mapping as ORM;
 /** @ORM\Entity */
-class Address {
+class Department {
      /** 
      * @ORM\Id 
      * @ORM\GeneratedValue(strategy="IDENTITY") 
@@ -12,14 +12,11 @@ class Address {
     protected $id;
 
     /** @ORM\Column(type="string") */
-    protected $city;
-
-    /** @ORM\Column(type="string") */
-    protected $country;
+    protected $title;
 
     // getters/setters etc.
     
-    public function setCity($city)
+    /*public function setCity($city)
     {
         $this->city = $city;
     }
@@ -27,11 +24,11 @@ class Address {
     public function setCountry($country)
     {
         $this->country = $country;
-    }
+    }*/
     
-    public function getCity()
+    public function getDepartment()
     {
-        return $this->city;
+        return $this->title;
     }    
 }
 

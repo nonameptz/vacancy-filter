@@ -65,6 +65,19 @@ return array(
                     ),
                 ),
             ),
+            
+            'filterVacancy' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route'    => '/filter/vacancy[/:lang[/:idVac]]',
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Filter',
+                        'action'     => 'vacancy',
+                        'lang'       => 'en',
+                        'idVac'      => 0
+                    ),
+                ),
+            )
         ),
     ),
     'service_manager' => array(
@@ -88,7 +101,8 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
-            'Application\Controller\Index' => 'Application\Controller\IndexController'
+            'Application\Controller\Index' => 'Application\Controller\IndexController',
+            'Application\Controller\Filter' => 'Application\Controller\FilterController'
         ),
     ),
     'view_manager' => array(

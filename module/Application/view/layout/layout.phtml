@@ -8,9 +8,9 @@
         <?php echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
 
         <!-- Le styles -->
-        <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
+        <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => '/image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
                         ->prependStylesheet($this->basePath() . '/css/style.css')
-                        ->prependStylesheet($this->basePath() . '/css/styles.css') ?>
+                        ->prependStylesheet($this->basePath() . '/css/wrapper.css') ?>
 
         <!-- Scripts -->
         <?php echo $this->headScript()->prependFile($this->basePath() . '/js/base.js', 'text/javascript')
@@ -22,20 +22,20 @@
 <table width="775"  border="0" cellpadding="0" cellspacing="0" class="frame" id="Table_01">
     <tr>
         <td colspan="2">
-            <img src="images/m1.jpg" width="136" height="147" alt=""></td>
+            <img src="/images/m1.jpg" width="136" height="147" alt=""></td>
         <td colspan="6" rowspan="7" style="padding-top: 12px;">
-            <img src="images/m2.jpg" width="639" height="257" alt=""></td>
+            <img src="/images/m2.jpg" width="639" height="257" alt=""></td>
     </tr>
     <tr>
         <td rowspan="5">
-            <img src="images/m3.jpg" width="70" height="90" alt=""></td>
+            <img src="/images/m3.jpg" width="70" height="90" alt=""></td>
         <td>
             <a href="/"
-                onmouseover="window.status='home'; changeImages('home', 'images/home-over.jpg'); return true;"
-                onmouseout="window.status=''; changeImages('home', 'images/home.jpg'); return true;"
-                onmousedown="changeImages('home', 'images/home-over.jpg'); return true;"
-                onmouseup="changeImages('home', 'images/home-over.jpg'); return true;">
-                <img name="home" src="images/home.jpg" width="66" height="18" border="0" alt="home"></a></td>
+                onmouseover="window.status='home'; changeImages('home', '/images/home-over.jpg'); return true;"
+                onmouseout="window.status=''; changeImages('home', '/images/home.jpg'); return true;"
+                onmousedown="changeImages('home', '/images/home-over.jpg'); return true;"
+                onmouseup="changeImages('home', '/images/home-over.jpg'); return true;">
+                <img name="home" src="/images/home.jpg" width="66" height="18" border="0" alt="home"></a></td>
     </tr>
     <tr>
         <td></td>
@@ -47,44 +47,45 @@
         <td></td>
     </tr>
     <tr>
-        <td></td>
+        <td>        
+        </td>
     </tr>
     <tr>
         <td colspan="2">
-            <img src="images/m4.jpg" width="136" height="20" alt=""></td>
+            <img src="/images/m4.jpg" width="136" height="20" alt=""></td>
     </tr>
     <tr height="100px;">
-        <td colspan="8">
+        <td colspan="8" style="padding: 20px;">
           <?php echo $this->content; ?>
         </td>
     </tr>
     <tr>
         <td colspan="3">
-            <img src="images/d1.jpg" width="178" height="44" alt=""></td>
+            <img src="/images/d1.jpg" width="178" height="44" alt=""></td>
         <td class="text2">
         </td>
         <td>
-            <img src="images/s2.jpg" width="30" height="44" alt=""></td>
+            <img src="/images/s2.jpg" width="30" height="44" alt=""></td>
         <td colspan="3" align="left" valign="middle" class="text3">
             <a href="/">Home</a> | <a href="/">About Us</a> | <a href="/">Services</a> |  <a href="/">Partners</a> | <a href="/">News</a> | <a href="/">Contact Us</a></td>
     </tr>
     <tr>
         <td>
-            <img src="images/spacer.gif" width="70" height="1" alt=""></td>
+            <img src="/images/spacer.gif" width="70" height="1" alt=""></td>
         <td>
-            <img src="images/spacer.gif" width="66" height="1" alt=""></td>
+            <img src="/images/spacer.gif" width="66" height="1" alt=""></td>
         <td>
-            <img src="images/spacer.gif" width="42" height="1" alt=""></td>
+            <img src="/images/spacer.gif" width="42" height="1" alt=""></td>
         <td>
-            <img src="images/spacer.gif" width="193" height="1" alt=""></td>
+            <img src="/images/spacer.gif" width="193" height="1" alt=""></td>
         <td>
-            <img src="images/spacer.gif" width="30" height="1" alt=""></td>
+            <img src="/images/spacer.gif" width="30" height="1" alt=""></td>
         <td>
-            <img src="images/spacer.gif" width="106" height="1" alt=""></td>
+            <img src="/images/spacer.gif" width="106" height="1" alt=""></td>
         <td>
-            <img src="images/spacer.gif" width="194" height="1" alt=""></td>
+            <img src="/images/spacer.gif" width="194" height="1" alt=""></td>
         <td>
-            <img src="images/spacer.gif" width="74" height="1" alt=""></td>
+            <img src="/images/spacer.gif" width="74" height="1" alt=""></td>
     </tr>
 </table>
             

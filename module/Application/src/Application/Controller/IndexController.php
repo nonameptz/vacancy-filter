@@ -20,7 +20,7 @@ class IndexController extends AbstractActionController
             ->getServiceLocator()
             ->get('Doctrine\ORM\EntityManager');
     
-        /*$user = new \Application\Entity\User();
+        $user = new \Application\Entity\User();
         $user->setFullName('Marco Pivetta');
         $objectManager->persist($user);
         
@@ -30,10 +30,15 @@ class IndexController extends AbstractActionController
         $objectManager->persist($address);
         
         $user->setAddress($address);
-        $objectManager->flush();*/
+        $objectManager->flush();
         
         $user = $objectManager->find('Application\Entity\User', 3);
         //var_dump($user->getAddress()->getCity()); // Frankfurt
         
+    }
+    
+    public function filterAction()
+    {
+        echo '1';
     }
 }
